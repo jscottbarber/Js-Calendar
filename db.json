@@ -5,6 +5,12 @@
       "title": "Appointment 1",
       "description": "Description for Appointment 1",
       "date": "1/22/2023"
+    },
+    {
+      "id": 2,
+      "title": "Appointment 2",
+      "description": "Description for Appointment 2",
+      "date": "1/29/2023"
     }
   ]
 }
