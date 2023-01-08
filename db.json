@@ -1,0 +1,10 @@
+{
+  "appointments": [
+    {
+      "id": 1,
+      "title": "Appointment 1",
+      "description": "Description for Appointment 1",
+      "date": "1/22/2023"
+    }
+  ]
+}
