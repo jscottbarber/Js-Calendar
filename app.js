@@ -126,18 +126,37 @@ function deleteEvent() {
 }
 
 function loadEvents() {
+  // Need to deal with: File doesn't exist, File is empty, File contains invalid data, File has no appointments, File has 1 or more appointments
   var xhttp = new XMLHttpRequest()
 
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       // Typical action to be performed when the document is ready:
       //document.getElementById("demo").innerHTML = xhttp.responseText
-      var response = JSON.parse(xhttp.responseText)
-      console.log(response.appointments)
+      if (xhttp.responseText.trim().length > 0) {
+        var response = JSON.parse(xhttp.responseText)
+        var appointments = response.appointments
+        if (appointments.length > 0) {
+          console.log(appointments)
+        } else {
+          console.log("No Appointments found in the database.")
+        }
+      } else {
+        console.log("The database file is currently empty.")
+      }
+
+    } else {
+      console.log("The database file does not exist.")
     }
   }
   xhttp.open("GET", "db.json", true)
-  xhttp.send()
+  try {
+    xhttp.send()
+  } catch (err) {
+    console.log("The database file does not exist.")
+  }
+  
+  
 }
 
 // function loadEvents() {
