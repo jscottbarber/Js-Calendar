@@ -1,3 +1,7 @@
+// const { writeDb } = require("./dbFunctions")
+// const { readDb } = require("./dbFunctions")
+import { readDb } from "./dbFunctions"
+
 let nav = 0
 let clicked = null
 let events = localStorage.getItem("events")
@@ -125,60 +129,59 @@ function deleteEvent() {
   closeModal()
 }
 
-function loadEvents() {
-  // Need to deal with: File doesn't exist, File is empty, File contains invalid data, File has no appointments, File has 1 or more appointments
-  var xhttp = new XMLHttpRequest()
+// function loadEvents() {
+//   // Need to deal with: File doesn't exist, File is empty, File contains invalid data, File has no appointments, File has 1 or more appointments
+//   var xhttp = new XMLHttpRequest()
 
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      // Typical action to be performed when the document is ready:
-      //document.getElementById("demo").innerHTML = xhttp.responseText
-      if (xhttp.responseText.trim().length > 0) {
-        var response = JSON.parse(xhttp.responseText)
-        var appointments = response.appointments
-        if (appointments.length > 0) {
-          console.log(appointments)
-        } else {
-          console.log("No Appointments found in the database.")
-        }
-      } else {
-        console.log("The database file is currently empty.")
-      }
+//   xhttp.onreadystatechange = function () {
+//     if (this.readyState == 4 && this.status == 200) {
+//       // Typical action to be performed when the document is ready:
+//       //document.getElementById("demo").innerHTML = xhttp.responseText
+//       if (xhttp.responseText.trim().length > 0) {
+//         var response = JSON.parse(xhttp.responseText)
+//         var appointments = response.appointments
+//         if (appointments.length > 0) {
+//           console.log(appointments)
+//         } else {
+//           console.log("No Appointments found in the database.")
+//         }
+//       } else {
+//         console.log("The database file is currently empty.")
+//       }
 
-    } else {
-      console.log("The database file does not exist.")
-    }
-  }
-  xhttp.open("GET", "db.json", true)
-  try {
-    xhttp.send()
-  } catch (err) {
-    console.log("The database file does not exist.")
-  }
-  
-  
-}
+//     } else {
+//       console.log("The database file does not exist.")
+//     }
+//   }
+//   xhttp.open("GET", "db.json", true)
+//   try {
+//     xhttp.send()
+//   } catch (err) {
+//     console.log("The database file does not exist.")
+//   }
+
+// }
 
 // function loadEvents() {
 //   console.log(readDb("db.json"))
 // }
 
-function readDb(dbName = "db.json") {
-  // read JSON object from file
-  const data = readFileSync(dbName, "utf8")
-  return JSON.parse(data)
-}
+// function readDb(dbName = "db.json") {
+//   // read JSON object from file
+//   const data = readFileSync(dbName, "utf8")
+//   return JSON.parse(data)
+// }
 
-function writeDb(obj, dbName = "db.json") {
-  if (!obj) return console.log("Please provide data to save")
-  try {
-    // TODO Could create a backup before overwriting
-    writeFileSync(dbName, JSON.stringify(obj)) //overwrites current data
-    return console.log("SAVE SUCESS")
-  } catch (err) {
-    return console.log("FAILED TO WRITE")
-  }
-}
+// function writeDb(obj, dbName = "db.json") {
+//   if (!obj) return console.log("Please provide data to save")
+//   try {
+//     // TODO Could create a backup before overwriting
+//     writeFileSync(dbName, JSON.stringify(obj)) //overwrites current data
+//     return console.log("SAVE SUCESS")
+//   } catch (err) {
+//     return console.log("FAILED TO WRITE")
+//   }
+// }
 
 function initButtons() {
   document.getElementById("nextButton").addEventListener("click", () => {
@@ -197,6 +200,7 @@ function initButtons() {
   document.getElementById("closeButton").addEventListener("click", closeModal)
 }
 
-loadEvents()
+// loadEvents()
+readDb()
 initButtons()
 load()
