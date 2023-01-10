@@ -1,6 +1,7 @@
 // const { writeDb } = require("./dbFunctions")
 // const { readDb } = require("./dbFunctions")
-import { readDb } from "./dbFunctions"
+// import { readDb } from "./dbFunctions.js"
+import agreements from "./dbFunctions.js"
 
 let nav = 0
 let clicked = null
@@ -201,6 +202,6 @@ function initButtons() {
 }
 
 // loadEvents()
-readDb()
+// readDb()
 initButtons()
 load()

@@ -1,13 +1,21 @@
 // import { readFileSync, writeFileSync } from "fs"
 // const fs = require("fs")
+import agreements from './db.json' assert {type: 'json'}
 
-function readDb(dbName = "db.json") {
-  fetch(dbName)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data)
-    })
-}
+console.log(agreements)
+
+// function readDb(dbName = "db.json") {
+//   const response = fetch(dbName)
+
+//   fetch(dbName)
+//     .then((response) => response.json())
+//     .then((data) => {
+//       // console.log(data)
+      
+//     })
+//     return JSON.parse(data)
+// }
+
 // function readDb(dbName = "db.json") {
 //   // read JSON object from file
 //   const data = readFileSync(dbName, "utf8")
@@ -27,4 +35,5 @@ function readDb(dbName = "db.json") {
 
 // module.exports = { readDb, writeDb }
 
-export { readDb }
+// export { readDb }
+export default { agreements }
