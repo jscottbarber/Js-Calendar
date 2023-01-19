@@ -1,7 +1,10 @@
 // const { writeDb } = require("./dbFunctions")
 // const { readDb } = require("./dbFunctions")
 // import { readDb } from "./dbFunctions.js"
-import agreements from "./dbFunctions.js"
+// import agreements from "./dbFunctions.js"
+import agreements from './db.json' assert {type: 'json'};
+
+console.log(agreements);
 
 let nav = 0
 let clicked = null

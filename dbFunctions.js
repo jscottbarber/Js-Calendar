@@ -1,8 +1,9 @@
 // import { readFileSync, writeFileSync } from "fs"
 // const fs = require("fs")
-import agreements from './db.json' assert {type: 'json'}
 
-console.log(agreements)
+import agreements from './db.json' assert {type: 'json'};
+
+console.log(agreements);
 
 // function readDb(dbName = "db.json") {
 //   const response = fetch(dbName)
@@ -36,4 +37,4 @@ console.log(agreements)
 // module.exports = { readDb, writeDb }
 
 // export { readDb }
-export default { agreements }
+export default { agreements };
